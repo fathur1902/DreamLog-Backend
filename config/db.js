@@ -17,11 +17,13 @@ db.connect(err => {
 
 // Buat tabel jika belum ada
 db.query(`
-    CREATE TABLE IF NOT EXISTS dreams (
+    CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(255),
-        description TEXT,
-        emotion VARCHAR(50)
+        full_name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL UNIQUE,
+        username VARCHAR(255) NOT NULL UNIQUE,
+        password VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
 `, err => {
     if (err) console.error('Error creating table:', err);
