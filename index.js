@@ -2,19 +2,26 @@ const express = require("express");
 const cors = require("cors");
 const dreamRoutes = require("./routes/dreams");
 const userRoutes = require("./routes/users");
+require("dotenv").config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
-// Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", 
+  })
+);
 app.use(express.json());
 
-// Routes
+app.get("/api/config", (req, res) => {
+  const baseUrl = process.env.SERVER_URL || `https://${req.hostname}`;
+  res.json({ baseUrl });
+});
+
 app.use("/api/dreams", dreamRoutes);
 app.use("/api/users", userRoutes);
 
-// Jalankan server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });

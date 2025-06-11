@@ -3,19 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js", 
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1" 
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": ["dreamlog", "api", "express", "backend"],
+  "author": "Fathur",
+  "license": "MIT", 
+  "description": "Backend API for DreamLog application using Express.js and MySQL",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
-    "mysql": "^2.18.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.9"
   }
 }
