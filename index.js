@@ -3,13 +3,14 @@ const cors = require("cors");
 const dreamRoutes = require("./routes/dreams");
 const userRoutes = require("./routes/users");
 require("dotenv").config();
+require("./config/initDB");
 
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(
   cors({
-    origin: "*", 
+    origin: "*",
   })
 );
 app.use(express.json());
